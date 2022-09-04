@@ -1,8 +1,26 @@
+/* matches LWS website */
+:root {
+  --nv-primary-accent: #2b2b2b;
+  --nv-secondary-accent: #fcaf3b;
+  --nv-site-bg: #ffffff;
+  --nv-light-bg: #ededed;
+  --nv-dark-bg: #009ddb;
+  --nv-text-color: #2b2b2b;
+  --nv-text-dark-bg: #ffffff;
+  --nv-c-1: #77b978;
+  --nv-c-2: #f37262;
+  --nv-fallback-ff: Arial, Helvetica, sans-serif;
+}
+
 body {
-  font: 100% Verdana, Arial, Helvetica, sans-serif;
-  color: #333;
+  font-family: Poppins, var(--nv-fallback-ff);
+  color: var(--nv-text-color);
   margin: 0 10%;
   padding: 0px;
+}
+a {
+  color: var(--nv-dark-bg);
+  text-decoration: none;
 }
 
 /*******************************************************************************
@@ -22,10 +40,19 @@ body {
 }
 
 /*******************************************************************************
+ * home page */
+.home-feature, .home-history h3 {
+  border-bottom: 3px solid var(--nv-secondary-accent)
+}
+.home-history {
+  margin-top: 3em;
+}
+
+/*******************************************************************************
  * section-title is the horizontal header that declares the classname, methods, etc. */
 .section-title {
-  background-color: SteelBlue;
-  color: white;
+  background-color: steelblue;
+  color: var(--nv-site-bg);
   padding: 10px;
   font-weight: bold;
   margin-bottom: 2px;
@@ -45,18 +72,19 @@ tr {
  * display the tags like author, date, description, params, return value, etc. */
 .details {
   width: 100%;
+  border-color: white;
 }
 .details th {
-  background-color: whitesmoke;
+  background-color: var(--nv-light-bg);
   padding: 6px 3px;
   text-align: right;
 }
 .details th.paramHeader {
-  background-color: white;
+  background-color: var(--nv-site-bg);
   text-align: left;
 }
 .details th.param {
-  background-color: whitesmoke;
+  background-color: var(--nv-light-bg);
   padding-left: 10px;
 }
 .details td {
@@ -98,16 +126,16 @@ pre {
 h2.trigger {
   margin: 0 0 2px 0;
   padding: 7px;
-  background-color: #ddd;
+  background-color: var(--nv-secondary-accent);
   font-weight: bold;
   font-size: medium;
 }
 h2.trigger a {
-  color: #888;
+  color: var(--nv-light-bg);
   text-decoration: none;
 }
 h2.trigger a:hover {
-  color: whitesmoke;
+  color: var(--nv-site-bg);
 }
 input {
   min-width: 2em;
@@ -120,7 +148,6 @@ input {
 }
 .toggle_container_subtitle {
   font: normal 1em Courier;
-  color: SteelBlue;
   padding-bottom: 10px;
 }
 
@@ -133,11 +160,11 @@ input {
 }
 .leftmenus div {
   font-weight: bold;
-  background-color: #e6e6e6;
+  background-color: var(--nv-light-bg);
   padding: 10px;
   cursor: pointer;
 }
 .leftmenus div:hover {
   font-weight: bold;
-  background-color: whitesmoke;
+  background-color: var(--nv-light-bg);
 }
