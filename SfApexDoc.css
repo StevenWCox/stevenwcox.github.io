@@ -10,6 +10,7 @@
   --nv-c-1: #77b978;
   --nv-c-2: #f37262;
   --nv-fallback-ff: Arial, Helvetica, sans-serif;
+  --nv-mono-ff: Monoco, "Courier New", monospace;
 }
 
 body {
@@ -146,7 +147,7 @@ pre {
   text-align: right;
 }
 .clsPropertyDeclaration {
-  font: normal 1em Courier;
+  font-family: var(--nv-mono-ff);
   color: SteelBlue;
 }
 .clsPropertyDescription {
@@ -179,7 +180,7 @@ input {
   padding: 10px;
 }
 .toggle_container_subtitle {
-  font: normal 1em Courier;
+  font-family: var(--nv-mono-ff);
   padding-bottom: 10px;
 }
 
