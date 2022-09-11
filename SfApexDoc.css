@@ -34,6 +34,10 @@ a {
   background-color: lightgray;
   top: 0;
 }
+.header #logo {
+  max-height: 110px;
+  margin-top: 20px;
+}
 .header td:nth-of-type(2) {
   padding: 1em;
 }
@@ -41,12 +45,17 @@ a {
   margin: 20px 0 0 30px;
   font-size: 3em;
 }
-.header h2 span {
-  font-size: initial;
+.header h2 {
+  font-weight: normal;
 }
-.header #logo {
-  max-height: 110px;
-  margin-top: 20px;
+span.boost {
+  font-size: 120%;
+  font-weight: bold;
+  letter-spacing: -1px;
+  /* color: var(--nv-secondary-accent); */
+}
+.header h2 span.from {
+  font-size: initial;
 }
 
 /*******************************************************************************
