@@ -59,8 +59,7 @@ a {
 
 /*******************************************************************************
  * home page */
-#home blockquote {
-  font-size: smaller;
+blockquote {
   background-color: antiquewhite;
   padding: 1em;
 }
@@ -128,6 +127,10 @@ td.classCell {
 }
 pre, code {
   white-space: pre-wrap;
+  font-size: large;
+  background-color: #f2f2f2;
+  padding: 0 4px;
+  border-radius: 5px;
 }
 pre {
   margin-left: 10px;
@@ -181,6 +184,7 @@ input {
 }
 .toggle_container_subtitle {
   font-family: var(--nv-mono-ff);
+  font-size: larger;
   padding-bottom: 10px;
 }
 
@@ -200,6 +204,9 @@ input {
 .leftmenus div:hover {
   font-weight: bold;
   background-color: var(--nv-light-bg);
+}
+li {
+  padding-bottom: 5px;
 }
 
 /*******************************************************************************
