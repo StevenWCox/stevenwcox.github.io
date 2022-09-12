@@ -199,23 +199,26 @@ input {
 
 /*******************************************************************************
  * styles for the menu of class names */
-.leftmenus {
+ .leftmenus {
   vertical-align: top;
   width: 20%;
-  padding-right: 1em;
 }
-.leftmenus div {
-  font-weight: bold;
-  background-color: var(--nv-light-bg);
-  padding: 10px;
+.leftmenus ul {
+  margin: 0 5px 0;
+  padding: 0;
+}
+.leftmenus li {
+  display: block;
+  background-color: #e6e6e6;
+  padding: 8px;
   cursor: pointer;
 }
-.leftmenus div:hover {
-  font-weight: bold;
-  background-color: var(--nv-light-bg);
+.leftmenus a {
+  color: var(--nv-primary-accent);
 }
-li {
-  padding-bottom: 5px;
+.leftmenus li:hover {
+  font-weight: bold;
+  background-color: whitesmoke;
 }
 
 /*******************************************************************************
