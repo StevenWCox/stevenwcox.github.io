@@ -210,11 +210,13 @@ input {
 .leftmenus li {
   display: block;
   background-color: #e6e6e6;
-  padding: 8px;
   cursor: pointer;
 }
 .leftmenus a {
   color: var(--nv-primary-accent);
+  padding: 8px;
+  display: inline-block;
+  width: calc(100% - 16px);
 }
 .leftmenus li:hover {
   font-weight: bold;
