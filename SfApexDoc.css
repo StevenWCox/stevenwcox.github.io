@@ -72,9 +72,21 @@ span.boost {
 blockquote {
   background-color: antiquewhite;
   padding: 1em;
+  clear: both;
 }
 #home {
   padding-left: 20px;
+}
+#home .video {
+  float: right;
+  margin-left: 1rem;
+}
+#home .video iframe {
+  width: 100%;
+}
+#home .video p {
+  font-size: 80%;
+  text-align: center;
 }
 #home .feature,
 #home .history h3 {
