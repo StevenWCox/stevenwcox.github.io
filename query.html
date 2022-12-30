@@ -1,23 +1,24 @@
-<html><head><title>Apex BOOST Library - Query</title><script type='text/javascript' src='jquery-latest.js'></script><link rel='stylesheet' type='text/css' href='SfApexDoc.css' /> <script>$(document).ready(function() {$('.toggle_container').hide();
+<html><head><title>Apex BOOST Library - Query</title><script type='text/javascript' src='jquery-latest.js'></script><link rel='stylesheet' type='text/css' href='SfApexDoc.css' /> <script type='text/javascript' src='sh_java.min.js'></script><script type='text/javascript' src='sh_main.min.js'></script><link rel='stylesheet' type='text/css' href='sh.min.css' /> <script>$(document).ready(function() {$('.toggle_container').hide();
 $('h2.trigger').click(function() {
 $(this).toggleClass('active').next().slideToggle('fast');ToggleBtnLabel(this.firstChild);return false; });});
 function ToggleBtnLabel(ctrl) {ctrl.value = (ctrl.value=='+' ? '-' : '+');}
 function IsExpanded(ctrl) {return (ctrl.value == '-');}
 function ToggleAll(e) {var cExpanded = 0;$('h2.trigger', $(e).closest('.class-model')).each(function() {if (!IsExpanded(this.firstChild)) {$(this).toggleClass('active').next().slideToggle('fast');ToggleBtnLabel(this.firstChild);cExpanded++;}});if (cExpanded == 0) {$('h2.trigger', $(e).closest('.class-model')).each(function() {$(this).toggleClass('active').next().slideToggle('fast');ToggleBtnLabel(this.firstChild);});}}
-</script></head><body><div class='header'><table cellpadding='0' cellspacing='0'><tr><td><img id='logo' src='logo.png'/></td><td><h2>Apex <span class='boost'>BOOST</span> Library<br><span class='from'>v1.3 from <a href='https://lucidwaresolutions.com'>Lucidware Solutions</a> (LWS)</span></h2></td></tr></table></div><div class='container'><div class='leftmenus'><ul><li><a href='index.html'>Home</a></li><li><a href='assert.html'>Assert</a></li><li><a href='assertexception.html'>AssertException</a></li><li><a href='batchjob.html'>BatchJob</a></li><li><a href='http.html'>Http</a></li><li><a href='logger.html'>Logger</a></li><li><a href='query.html'>Query</a></li><li><a href='test.html'>Test</a></li><li><a href='triggerhandler.html'>TriggerHandler</a></li><li><a href='util.html'>Util</a></li></ul></div><div class='page'><div class='class-model'><h2 class='section-title'>Query<span><input type='button' value='+/- all' onclick='ToggleAll(this);' /></span></h2><div class='toggle_container_subtitle'>global inherited sharing class <a href='query.html'>Query</a></div><table class='details' rules='all' border='1' cellpadding='6'><tr><th>Description</th><td>Using this class, a dynamic query can be constructed piece by piece, adding object and field type checking, which avoids typos and references to invalid fields. <p>By default, 'WITH SECURITY_ENFORCED' will be added when executing the query. If any fields or objects referenced in the query are inaccessible to the user, a QueryException is thrown. This can be disabled, if desired.</p> <p><b>Usage:</b></p>  <pre>
+</script></head><body onload='sh_highlightDocument();'><div class='header'><table cellpadding='0' cellspacing='0'><tr><td><img id='logo' src='logo.png'/></td><td><h2>Apex <span class='boost'>BOOST</span> Library<br><span class='from'>v1.3 from <a href='https://lucidwaresolutions.com'>Lucidware Solutions</a> (LWS)</span></h2></td></tr></table></div><div class='container'><div class='leftmenus'><ul><li><a href='index.html'>Home</a></li><li><a href='assert.html'>Assert</a></li><li><a href='assertexception.html'>AssertException</a></li><li><a href='batchjob.html'>BatchJob</a></li><li><a href='logger.html'>Logger</a></li><li><a href='query.html'>Query</a></li><li><a href='test.html'>Test</a></li><li><a href='triggerhandler.html'>TriggerHandler</a></li><li><a href='util.html'>Util</a></li></ul></div><div class='page'><div class='class-model'><h2 class='section-title'>Query<span><input type='button' value='+/- all' onclick='ToggleAll(this);' /></span></h2><div class='toggle_container_subtitle'>global inherited sharing class <a href='query.html'>Query</a></div><table class='details' rules='all' border='1' cellpadding='6'><tr><th>Description</th><td>Using this class, a dynamic query can be constructed piece by piece, adding object and field type checking, which avoids typos and references to invalid fields. <p>By default, 'WITH SECURITY_ENFORCED' will be added when executing the query. If any fields or objects referenced in the query are inaccessible to the user, a QueryException is thrown. This can be disabled, if desired.</p> Usage:  <pre class='sh_java'>
  // get user names where City starts with &#34;San&#34; (method chaining)
  User[] users = new aBoost.Query(User.SObjectType)
    .field(User.Name)
    .whereOp(User.City, 'LIKE', 'San%')
    .run();
- <br>
+
  // get the number of contacts in Dallas accounts (complex query)
- aBoost.Query dallasAccounts = new aBoost.Query(Account.SObjectType).whereOp(Account.City, '=', 'Dallas'));
- aBoost.Query contacts = new aBoost.Query(Contact.SObjectType);
- contacts.field(Contact.Name);
- contacts.whereIn(Contact.AccountId, dallasAccounts);
- <a href='https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_primitives.htm'>Integer</a> contactCount = contacts.count();
- <br>
+ aBoost.Query dallasAccounts = new aBoost.Query(Account.SObjectType)
+   .whereOp(Account.City, '=', 'Dallas'));
+ <a href='https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_primitives.htm'>Integer</a> contactCount = new aBoost.Query(Contact.SObjectType)
+   .field(Contact.Name)
+   .whereIn(Contact.AccountId, dallasAccounts)
+   .count();
+
  // get the contacts in certain accounts (child query)
  Account[] results = new aBoost.Query(Account.SObjectType)
    .fields(new <a href='query.html'>Query</a>().createChildQuery(Contact.SObjectType, 'Contacts'))
